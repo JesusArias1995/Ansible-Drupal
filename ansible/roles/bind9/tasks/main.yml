@@ -3,3 +3,11 @@
   apt:
     name: bind9
     state: latest
+
+- name: Configuracion de la zona
+  copy: src=../templates/named.conf.local dest=/etc/bind/named.conf.local
+
+- name: Configuracion de la zona 2
+  template: src=../templates/db.example.com dest=/var/cache/bind/db.example.com
+  notify:
+    - restart bind9
