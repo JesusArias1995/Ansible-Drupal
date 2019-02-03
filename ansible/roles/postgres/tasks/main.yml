@@ -13,7 +13,6 @@
   become_user: postgres
   postgresql_db:
     name: "{{ db_database }}"
-    owner: "{{ db_user }}"
 
 - name: Crear usuario drupal
   vars:
@@ -24,5 +23,5 @@
     db: "{{ db_database }}"
     name: "{{ db_user }}"
     password: "{{ db_password }}"
-    priv: "CONNECT/drupal:ALL"
+    priv: "ALL"
     expires: infinity
