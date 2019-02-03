@@ -4,9 +4,11 @@
     name: "{{ item }}"
   with_items:
     - postgresql
-    - python3-psycopg2
+    - python-psycopg2
 
-- name: Creae usuario drupal
+- name: Crear usuario drupal
+  vars:
+    ansible_ssh_pipelining: true
   become: yes
   become_user: postgres
   postgresql_user:
