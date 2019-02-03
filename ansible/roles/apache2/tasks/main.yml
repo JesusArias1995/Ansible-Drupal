@@ -1,5 +1,5 @@
 ---
-- name: Instalar Postgres
+- name: Instalar Apache y php
   apt:
     name: "{{ item }}"
   with_items:
