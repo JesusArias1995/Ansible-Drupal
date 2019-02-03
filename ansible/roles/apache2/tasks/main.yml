@@ -10,3 +10,10 @@
     - php-xml
     - php-gd
     - php7.0-mbstring
+    - unzip
+
+- name: Unzip drupal en el directorio del servidor apache
+  unarchive: src=../../drupal/templates/zip dest=/var/www/
+
+- name: Mover fichero a html
+  shell: mv /var/www/drupal-8.6.7/* /var/www/html/ && rm /var/www/html/index.html
