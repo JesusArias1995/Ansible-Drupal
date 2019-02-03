@@ -1,0 +1,5 @@
+---
+- name: Instalar Bind9
+  apt:
+    name: bind9
+    state: latest

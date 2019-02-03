@@ -9,3 +9,4 @@
   become: yes
   roles:
     - role: postgres
+    - role: bind9
