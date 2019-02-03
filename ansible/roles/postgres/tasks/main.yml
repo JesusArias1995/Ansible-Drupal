@@ -6,15 +6,6 @@
     - postgresql
     - python-psycopg2
 
-- name: Crear usuario drupal
-  vars:
-    ansible_ssh_pipelining: true
-  become: yes
-  become_user: postgres
-  postgresql_user:
-    name: "{{ db_user }}"
-    password: "{{ db_password }}"
-
 - name: Crear base de datos drupal
   vars:
     ansible_ssh_pipelining: true
@@ -23,3 +14,15 @@
   postgresql_db:
     name: "{{ db_database }}"
     owner: "{{ db_user }}"
+
+- name: Crear usuario drupal
+  vars:
+    ansible_ssh_pipelining: true
+  become: yes
+  become_user: postgres
+  postgresql_user:
+    db: "{{ db_database }}"
+    name: "{{ db_user }}"
+    password: "{{ db_password }}"
+    priv: "CONNECT/drupal:ALL"
+    expires: infinity
