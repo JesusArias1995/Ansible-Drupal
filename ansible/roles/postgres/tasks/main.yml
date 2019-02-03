@@ -27,12 +27,12 @@
 #    expires: infinity
 
 - name: Configuracion de acceso remoto
-  copy: src=../files/postgresql.conf dest=/etc/postgresql/9.6/main/postgresql.conf
+  copy: src=../templates/postgresql.conf dest=/etc/postgresql/9.6/main/postgresql.conf
   notify:
     - restart postgresql
 
 - name: Configuracion de acceso remoto 2
-  copy: src=../files/pg_hba.conf dest=/etc/postgresql/9.6/main/pg_hba.conf
+  copy: src=../templates/pg_hba.conf dest=/etc/postgresql/9.6/main/pg_hba.conf
   notify:
     - restart postgresql
 
