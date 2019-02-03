@@ -1,6 +1,14 @@
 ---
-- name: Install Postgres
+- name: Instalar Postgres
   apt:
     name: "{{ item }}"
   with_items:
     - postgresql
+    - python3-psycopg2
+
+- name: Creae usuario drupal
+  become: yes
+  become_user: postgres
+  postgresql_user:
+    name: "{{ db_user }}"
+    password: "{{ db_password }}"

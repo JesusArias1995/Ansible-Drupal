@@ -1,0 +1,4 @@
+#Postres
+db_database: drupal
+db_user: drupal
+db_password: drupal
