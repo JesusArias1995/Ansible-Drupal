@@ -14,3 +14,12 @@
   postgresql_user:
     name: "{{ db_user }}"
     password: "{{ db_password }}"
+
+- name: Crear base de datos drupal
+  vars:
+    ansible_ssh_pipelining: true
+  become: yes
+  become_user: postgres
+  postgresql_db:
+    name: "{{ db_database }}"
+    owner: "{{ db_user }}"
