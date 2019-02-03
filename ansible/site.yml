@@ -10,3 +10,8 @@
   roles:
     - role: postgres
     - role: bind9
+
+- hosts: nodo2
+  become: yes
+  roles:
+    - role: apache2

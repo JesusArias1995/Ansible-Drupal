@@ -1,0 +1,12 @@
+---
+- name: Instalar Postgres
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - apache2
+    - php7.0
+    - php7.0-pgsql
+    - libapache2-mod-php7.0
+    - php-xml
+    - php-gd
+    - php7.0-mbstring
