@@ -17,3 +17,5 @@
 
 - name: Mover fichero a html
   shell: mv /var/www/drupal-8.6.7/* /var/www/html/ && sudo chown -R www-data:www-data /var/www/html/ && rm /var/www/html/index.html 
+  notify:
+    - restart apache2
