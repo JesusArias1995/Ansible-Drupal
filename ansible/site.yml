@@ -15,3 +15,4 @@
   become: yes
   roles:
     - role: apache2
+    - role: drupal
