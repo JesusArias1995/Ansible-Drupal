@@ -19,7 +19,7 @@
   copy: src=../templates/drupal.conf dest=/etc/apache2/sites-available/drupal.conf
 
 - name: Mover ficheros a directorio drupal
-  shell: mv /var/www/drupal-8.6.7/* /var/www/drupal/ && sudo chown -R www-data:www-data /var/www/drupal/ 
+  shell: mv /var/www/drupal-8.6.7 /var/www/drupal && sudo chown -R www-data:www-data /var/www/drupal/ 
 
 - name: Activar virtualhost
   shell: a2ensite drupal.conf
