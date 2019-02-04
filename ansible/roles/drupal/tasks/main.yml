@@ -1,0 +1,10 @@
+- name: Download Drush
+  get_url:
+    url: https://github.com/drush-ops/drush/releases/download/8.1.2/drush.phar
+    dest: /usr/local/bin/drush
+    mode: 0755
+
+- name: Install Drush
+  command: drush si expert --locale=spain --site-name=Drupal --account-name=arias --account-pass=arias --db-url=pgsql://{{ db_user }}:{{ db_password }}@{{ ip_nodo1 }}/{{ db_database }} -r /var/www/drupal -y
+  notify:
+    - restart apache2
