@@ -7,6 +7,24 @@
     group: www-data
 
 - name: Install Drush
-  command: drush si standard --site-name=Drupal --account-name=arias --account-pass=arias --db-url=pgsql://{{ db_user }}:{{ db_password }}@{{ ip_nodo1 }}/{{ db_database }} -r /var/www/drupal -y
+  command: >
+    drush si standard -y
+    --db-url=pgsql://{{ db_user }}:{{ db_password }}@{{ ip_nodo1 }}/{{ db_database }}
+    --account-name=arias
+    --account-pass=arias
+    --account-mail=jesusariasgil1995@hotmail.com
+    --site-name="Drupal" 
+    -r /var/www/drupal -y
+
+- name: Permisos drupal
+  file:
+    path: /var/www/drupal
+    mode: 0755
+    owner: www-data
+    group: www-data
+    recurse: yes
+
+- name: Cargar CSS Drupal
+  shell: drush cr -r /var/www/drupal/ 
   notify:
     - restart apache2
