@@ -14,17 +14,17 @@
   postgresql_db:
     name: "{{ db_database }}"
 
-#- name: Crear usuario drupal
-#  vars:
-#    ansible_ssh_pipelining: true
-#  become: yes
-#  become_user: postgres
-#  postgresql_user:
-#    db: "{{ db_database }}"
-#    name: "{{ db_user }}"
-#    password: "{{ db_password }}"
-#    priv: "ALL"
-#    expires: infinity
+- name: Crear usuario drupal
+  vars:
+    ansible_ssh_pipelining: true
+  become: yes
+  become_user: postgres
+  postgresql_user:
+    db: "{{ db_database }}"
+    name: "{{ db_user }}"
+    password: "{{ db_password }}"
+    priv: "ALL"
+    expires: infinity
 
 - name: Configuracion de la base de datos
   command: psql -c "ALTER DATABASE {{ db_database }} SET bytea_output = 'escape';"
