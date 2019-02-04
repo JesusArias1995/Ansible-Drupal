@@ -1,6 +1,6 @@
 # Instalación de Drupal con Ansible
 
-Tenemos un escenario con dos máquinas.
+Tenemos un escenario con dos máquinas Debian Stretch, llamadas nodo1 y nodo2.
 - **Nodo 1:** PostgreSQL y Bind9
 - **Nodo 2:** Apache con mod-php
 
