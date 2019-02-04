@@ -16,10 +16,13 @@
   unarchive: src=../../drupal/templates/zip dest=/var/www/
 
 - name: Fichero del sitio web
-  copy: src=../templates/000-default.conf dest=/etc/apache2/sites-available/000-default.conf
+  copy: src=../templates/drupal.conf dest=/etc/apache2/sites-available/drupal.conf
 
-- name: Mover fichero a html
-  shell: mv /var/www/drupal-8.6.7/* /var/www/html/ && sudo chown -R www-data:www-data /var/www/html/ && rm /var/www/html/index.html 
+- name: Mover ficheros a directorio drupal
+  shell: mv /var/www/drupal-8.6.7/* /var/www/drupal/ && sudo chown -R www-data:www-data /var/www/drupal/ 
+
+- name: Activar virtualhost
+  shell: a2ensite drupal.conf
 
 - name: URL limpias
   shell: a2enmod rewrite
