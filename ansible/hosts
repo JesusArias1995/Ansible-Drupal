@@ -1,4 +1,4 @@
 [nodo1]
-10.0.0.5
+10.0.0.5 ansible_ssh_private_key_file=.vagrant/machines/nodo1/virtualbox/private_key
 [nodo2]
-10.0.0.10
+10.0.0.10 ansible_ssh_private_key_file=.vagrant/machines/nodo2/virtualbox/private_key
